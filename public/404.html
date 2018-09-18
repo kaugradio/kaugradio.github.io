@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head>
+	<title>KAUG: Augsburg University Radio Station - Page Not Found</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<audio id="player" controls style="width:100%;position:fixed;background:white">
+    <source src="http://141.224.159.43:8000/listen.m3u" type="audio/mpegURL"/>
+</audio>
+<div id="heading" class="heading" style="width:100%;padding-bottom:5px">
+	<img src="kaug.png" width="19.5%" style="vertical-align:middle;display:inline-block;margin-top:5px;margin-left:0.5%"/><div class="station" style="width:80%"><h1 style="font-size:50px;text-align:center;margin-left:0px;max-height:100%;color:black"><a style="color:black" href="http://www.augsburg.edu/">Augsburg University</a><br/>Radio Station</h1></div>
+</div>
+<div id="heading2">
+<center><img src="kaug.png" width="40%"></center>
+<h1 style="font-size:40px;text-align:center;margin-left:0px;max-height:100%;color:black"><a style="color:black" href="http://www.augsburg.edu/">Augsburg University</a><br/>Radio Station</h1>
+<center><a href="https://www.instagram.com/kaugradio"><img width="10%" style="margin:0px;padding:0px;margin-right:1%" src="internal/instagram.png"></a><a href="https://twitter.com/RadioKAUG"><img width="10%" style="margin:0px;padding:0px;margin-right:1%" src="internal/twitter.svg"><a href="https://www.facebook.com/kaugradio"><img width="10%" style="margin:0px;padding:0px;" src="internal/facebook.svg"></a></center>
+</div>
+<a href="events"><button style="margin-right:1%">Events</button></a><a href="about"><button style="margin-right:1%">About</button></a><a href="schedule"><button style="margin-right:1%">Schedule</button></a><a href="contact"><button>Contact</button></a><div style="display:inline-block;width:100%;margin:0px">
+<div id="menu" style="width:340px;margin-right:10px;vertical-align:top;float:left;background-color:#660033;padding-left:10px;padding-right:10px;min-height:400px;">
+	<hr style="color:#0000"/><a href="https://www.instagram.com/kaugradio"><img width="30%" style="margin:0px;padding:0px;margin-right:5%" src="internal/instagram.png"></a><a href="https://twitter.com/RadioKAUG"><img width="30%" style="margin:0px;padding:0px;margin-right:5%" src="internal/twitter.svg"><a href="https://www.facebook.com/kaugradio"><img width="30%" style="margin:0px;padding:0px;" src="internal/facebook.svg"></a>
+	<hr/>
+	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkaugradio&tabs=timeline&width=338&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="338" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+	<hr/>
+	<a class="twitter-timeline" href="https://twitter.com/RadioKAUG?ref_src=twsrc%5Etfw">Tweets by RadioKAUG</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<hr/>
+
+</div><div><div id="content" style="padding-left:10px;padding-right:0px;padding-bottom:40px;vertical-align:top;float:left;background-color:#660033">
+
+	<h2>404</h2>
+	<hr/>
+	<h3>Page Not Found</h3>
+	<p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
+	<hr/>
+
+</div></div></div>
+<script type="text/javascript">
+var linksmenu;
+var content;
+var menuman;
+var heading;
+var heading2;
+var player;
+var mobile = false;
+// linksmenu = document.getElementById("links");
+content = document.getElementById("content");
+player = document.getElementById("player");
+menu = document.getElementById("menu");
+heading = document.getElementById("heading");
+heading2 = document.getElementById("heading2");
+// header = document.getElementById("header");
+function resize() {
+	if (window.innerWidth < 900) {
+		mobile = true;
+		// Mobile
+		// linksmenu.style.display = 'none';
+		// linksmenu.style.width = '95%';
+		menu.style.display = 'none';
+		heading.style.display = 'none';
+		heading2.style.display = 'block';
+		content.style.width = (window.innerWidth - 25) + 'px';
+	} else {
+		// Not Mobile
+		mobile = false;
+		// linksmenu.style.display = 'block';
+		// linksmenu.style.width = '275px';
+		menu.style.display = 'block';
+		heading.style.display = 'block';
+		heading2.style.display = 'none';
+		content.style.width = (window.innerWidth - 430) + 'px';
+//		content.style.width += '10px';
+	}
+	player.style.top = (window.innerHeight - 45) + 'px';
+//	header.style.display = 'block';
+//	content.style.display = 'block';
+}
+// Check for resize events
+window.addEventListener("resize", function() {
+	resize();
+});
+resize();
+</script>
+</body></html>

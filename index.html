@@ -80,14 +80,21 @@
       min-height: 0px;
     }
     body .header {
-      background: #D7D8DA;
+      background: #f0f0f0;
       margin: 0px;
       padding: 0px;
       border: 0px;
       border-image-width: 0px;
+      border-bottom: 1px solid #0008;
       flex: 0 1 auto;
       height: 50px;
       display:flex;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     img {
       margin: 0px;
@@ -103,10 +110,10 @@
       max-width: 1024px;
       border: 3px solid #ffb4c880;
       background: #660033ff;
-      color: #ddd;
+      color: #f0f0f0;
     }
     .page a {
-      color: #88F;
+      color: #88f;
     }
     body .content {
       overflow-y: scroll;
@@ -119,11 +126,15 @@
       position: relative;
       display: inline-block;
       cursor: pointer;
+      margin-left:10px;
     }
     .db {
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+      border-style: 0px solid;
+      border-color: #000;
+      border-right: 2px solid #0008;
+      border-bottom: 2px solid #0008;
       z-index: 1;
-      background: white;
+      background: #f0f0f0;
       font-family: oswald;
       font-size: 14pt;
     }
@@ -136,6 +147,11 @@
     .db a:hover {
       background-color: #ddd;
     }
+    .dropup {
+        color: #660033ff;
+        text-decoration: none;
+        cursor: pointer;
+    }
     </style>
   </head>
   <body>
@@ -143,19 +159,19 @@
     <source src="http://141.224.159.43:8000" type="audio/ogg"/>
 </audio>
     <div class="header">
-        <div id="logoa" class="dropdown"><img src="kaugradio.svg" alt="KAUG" height="100%" width="100px"/>
-            <div id="myDropdown" class="db" style="position:fixed;top:50px;left:10px;min-width:300px;overflow:auto;display:none;">
-                <a href="">Events</a>
-                <a href="calendar">Calendar</a>
-                <a href="artists">Augsburg Artists</a>
-                <a href="shows">Radio Shows</a>
-                <a href="about">About</a>
-            </div>
+        <div id="logoa" class="dropdown"><img src="kaugradio.svg" alt="KAUG" height="100%" width="80px"/>
         </div>
-        <a style="color:#660033ff;text-decoration:none" id="logob">
-            <h1 style="font-size:14pt;text-align:center;margin-left:0px;max-height:100%;margin-top:10px">Radio & Concert Promotion</h1>
+        <a class="dropup" id="logob">
+            <h1 style="font-size:14pt;text-align:center;margin-left:0px;max-height:100%;margin-top:11px;margin-right:10px">Radio & Concert Promotion</h1>
         </a>
         <div style="flex: 1 1 auto;" id="flex"></div>
+    </div>
+    <div id="myDropdown" class="db" style="position:fixed;top:50px;left:10px;min-width:300px;overflow:auto;display:none;">
+        <a href="">Events</a>
+        <a href="calendar">Calendar</a>
+        <a href="artists">Augsburg Artists</a>
+        <a href="shows">Radio Shows</a>
+        <a href="about">About</a>
     </div>
     <div id="content" class="content">
       <div class="page">
@@ -177,18 +193,49 @@
       </div>
     </div>
 <script type="text/javascript">
+var hasmenu = false;
 
 document.getElementById("logoa").onclick = function(event) {
-    document.getElementById("myDropdown").style.display = "block";
+    if (hasmenu == true) {
+        document.getElementById("myDropdown").style.display = "none";
+        hasmenu = false;
+    } else {
+        document.getElementById("myDropdown").style.display = "block";
+        hasmenu = true;
+    }
 }
 document.getElementById("logob").onclick = function(event) {
-    document.getElementById("myDropdown").style.display = "block";
+    if (hasmenu == true) {
+        document.getElementById("myDropdown").style.display = "none";
+        hasmenu = false;
+    } else {
+        document.getElementById("myDropdown").style.display = "block";
+        hasmenu = true;
+    }
 }
 document.getElementById("flex").onclick = function(event) {
     document.getElementById("myDropdown").style.display = "none";
+    hasmenu = false;
 }
 document.getElementById("content").onclick = function(event) {
     document.getElementById("myDropdown").style.display = "none";
+    hasmenu = false;
+}
+document.getElementById("logoa").onmouseover = function(event) {
+    document.getElementById("logoa").style.backgroundColor = "#dddf";
+    document.getElementById("logob").style.backgroundColor = "#dddf";
+}
+document.getElementById("logob").onmouseover = function(event) {
+    document.getElementById("logoa").style.backgroundColor = "#dddf";
+    document.getElementById("logob").style.backgroundColor = "#dddf";
+}
+document.getElementById("logoa").onmouseleave = function(event) {
+    document.getElementById("logoa").style.backgroundColor = "#0000";
+    document.getElementById("logob").style.backgroundColor = "#0000";
+}
+document.getElementById("logob").onmouseleave = function(event) {
+    document.getElementById("logoa").style.backgroundColor = "#0000";
+    document.getElementById("logob").style.backgroundColor = "#0000";
 }
 
 var player;

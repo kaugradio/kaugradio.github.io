@@ -101,7 +101,6 @@
       border-radius: 24px;
       width: 90%;
       max-width: 1024px;
-      min-width: 488px;
       border: 3px solid #ffb4c880;
       background: #660033ff;
       color: #ddd;
@@ -129,20 +128,21 @@
     <div class="header"><a href="https://kaug.augsburg.edu"><img src="kaugradio.svg" alt="KAUG" height="100%" width="100px"/></a>
 <div style="flex-flow:column;display: flex;">
 <div style="flex: 1 1 auto;"></div>
-<h1 style="font-size:29pt;text-align:center;margin-left:0px;max-height:100%;color:#660033ff">Radio & Concert Promotion</h1>
+<h1 id="pagename" style="font-size:29pt;text-align:center;margin-left:0px;max-height:100%;color:#660033ff">Radio & Concert Promotion</h1>
 <div style="flex: 1 1 auto;"></div>
 </div>
       <div style="flex: 1 1 auto;"></div>
     </div>
     <div class="content">
       <div class="page">
-        <h1>Welcome to KAUG, <a href="http://www.augsburg.edu/">Augsburg University</a>'s Radio Station!<a href="https://www.instagram.com/kaugradio"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px" src="internal/instagram.png"></a><a href="https://twitter.com/RadioKAUG"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px;margin-right:10px" src="internal/twitter.svg"><a href="https://www.facebook.com/kaugradio"><img width="64px" style="border-radius:15px;float:right;margin:0px;padding:0px;margin-right:10px" src="internal/facebook.svg"></a></h1>
+        <h1>Welcome to KAUG, <a href="http://www.augsburg.edu/">Augsburg University</a>'s Radio Station!</h1>
+<a href="https://www.instagram.com/kaugradio"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px" src="internal/instagram.png"></a><a href="https://twitter.com/RadioKAUG"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px;margin-right:10px" src="internal/twitter.svg"><a href="https://www.facebook.com/kaugradio"><img width="64px" style="border-radius:15px;float:right;margin:0px;padding:0px;margin-right:10px" src="internal/facebook.svg"></a>
         <hr/>
         <p><a href="about">About KAUG</a></p>
       </div>
       <div class="page">
       <h1>Example Post</h1>
-      <h4>By: Jeron Lau - May 6, 2019</h4>
+      <h4>May 6, 2019 - Posted by: Jeron Lau</h4>
       <p>
       New design for the KAUG website!
       </p>
@@ -152,5 +152,30 @@
         <br/>
       </div>
     </div>
+<script type="text/javascript">
+var player;
+var pagename;
+var mobile = false;
+// linksmenu = document.getElementById("links");
+player = document.getElementById("player");
+pagename = document.getElementById("pagename");
+function resize() {
+	if (window.innerWidth < 550) {
+		mobile = true;
+		// Mobile
+		pagename.style.fontSize = '14pt';
+	} else {
+		// Not Mobile
+		mobile = false;
+		pagename.style.fontSize = '29pt';
+	}
+    player.style.top = (window.innerHeight - 45) + 'px';
+}
+// Check for resize events
+window.addEventListener("resize", function() {
+	resize();
+});
+resize();
+</script>
   </body>
 </html>

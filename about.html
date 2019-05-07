@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KAUG Radio & Concert Promotion</title>
+    <title>About - KAUG Radio & Concert Promotion</title>
     <base href="">
     <link rel="icon" href="kaugradio_favicon.svg">
     <style>
@@ -101,7 +101,6 @@
       border-radius: 24px;
       width: 90%;
       max-width: 1024px;
-      min-width: 488px;
       border: 3px solid #ffb4c880;
       background: #660033ff;
       color: #ddd;
@@ -123,13 +122,13 @@
     </style>
   </head>
   <body>
-<audio id="player" controls autoplay style="bottom:0%;width:100%;position:fixed;background:black;">
+<audio id="player" controls autoplay style="bottom:0%;width:100%;position:fixed;">
     <source src="http://141.224.159.43:8000" type="audio/ogg"/>
 </audio>
     <div class="header"><a href="https://kaug.augsburg.edu"><img src="kaugradio.svg" alt="KAUG" height="100%" width="100px"/></a>
 <div style="flex-flow:column;display: flex;">
 <div style="flex: 1 1 auto;"></div>
-<h1 style="font-size:29pt;text-align:center;margin-left:0px;max-height:100%;color:#660033ff">Radio & Concert Promotion</h1>
+<h1 id="pagename" style="font-size:29pt;text-align:center;margin-left:0px;max-height:100%;color:#660033ff">Radio & Concert Promotion</h1>
 <div style="flex: 1 1 auto;"></div>
 </div>
       <div style="flex: 1 1 auto;"></div>
@@ -166,5 +165,30 @@
         <br/>
       </div>
     </div>
+<script type="text/javascript">
+var player;
+var pagename;
+var mobile = false;
+// linksmenu = document.getElementById("links");
+player = document.getElementById("player");
+pagename = document.getElementById("pagename");
+function resize() {
+	if (window.innerWidth < 550) {
+		mobile = true;
+		// Mobile
+		pagename.style.fontSize = '14pt';
+	} else {
+		// Not Mobile
+		mobile = false;
+		pagename.style.fontSize = '29pt';
+	}
+    player.style.top = (window.innerHeight - 45) + 'px';
+}
+// Check for resize events
+window.addEventListener("resize", function() {
+	resize();
+});
+resize();
+</script>
   </body>
 </html>

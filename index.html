@@ -143,7 +143,7 @@
     <source src="http://141.224.159.43:8000" type="audio/ogg"/>
 </audio>
     <div class="header">
-        <div class="dropdown" onmouseenter="dropdown()" onmouseleave="dropup()"><a href=""><img src="kaugradio.svg" alt="KAUG" height="100%" width="100px"/></a>
+        <div id="logoa" class="dropdown"><img src="kaugradio.svg" alt="KAUG" height="100%" width="100px"/>
             <div id="myDropdown" class="db" style="position:fixed;top:50px;left:10px;min-width:300px;overflow:auto;display:none;">
                 <a href="">Events</a>
                 <a href="calendar">Calendar</a>
@@ -152,10 +152,10 @@
                 <a href="about">About</a>
             </div>
         </div>
-        <a href="" style="color:#660033ff;text-decoration:none" onmouseenter="dropdown()" onmouseleave="dropup()">
+        <a style="color:#660033ff;text-decoration:none" id="logob">
             <h1 style="font-size:14pt;text-align:center;margin-left:0px;max-height:100%;margin-top:10px">Radio & Concert Promotion</h1>
         </a>
-        <div style="flex: 1 1 auto;"></div>
+        <div style="flex: 1 1 auto;" id="flex"></div>
     </div>
     <div id="content" class="content">
       <div class="page">
@@ -178,15 +178,16 @@
     </div>
 <script type="text/javascript">
 
-function dropdown() {
-//    if (document.getElementById("myDropdown").style.display == "none") {
-        document.getElementById("myDropdown").style.display = "block";
-//    } else {
-//       
-//    }
+document.getElementById("logoa").onclick = function(event) {
+    document.getElementById("myDropdown").style.display = "block";
 }
-
-function dropup() {
+document.getElementById("logob").onclick = function(event) {
+    document.getElementById("myDropdown").style.display = "block";
+}
+document.getElementById("flex").onclick = function(event) {
+    document.getElementById("myDropdown").style.display = "none";
+}
+document.getElementById("content").onclick = function(event) {
     document.getElementById("myDropdown").style.display = "none";
 }
 

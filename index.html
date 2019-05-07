@@ -113,6 +113,7 @@
       flex: 1 1 auto;
       display: flex;
       flex-flow: column;
+      padding: 0px;
     }
     input {
       -moz-box-sizing: content-box;
@@ -133,7 +134,7 @@
 </div>
       <div style="flex: 1 1 auto;"></div>
     </div>
-    <div class="content">
+    <div id="content" class="content">
       <div class="page">
         <h1>Welcome to KAUG, <a href="http://www.augsburg.edu/">Augsburg University</a>'s Radio Station!</h1>
 <a href="https://www.instagram.com/kaugradio"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px" src="internal/instagram.png"></a><a href="https://twitter.com/RadioKAUG"><img width="64px" style="float:right;border-radius:15px;margin:0px;padding:0px;margin-right:10px" src="internal/twitter.svg"><a href="https://www.facebook.com/kaugradio"><img width="64px" style="border-radius:15px;float:right;margin:0px;padding:0px;margin-right:10px" src="internal/facebook.svg"></a>
@@ -155,19 +156,25 @@
 <script type="text/javascript">
 var player;
 var pagename;
-var mobile = false;
+var content;
 // linksmenu = document.getElementById("links");
 player = document.getElementById("player");
 pagename = document.getElementById("pagename");
+content = document.getElementById("content");
 function resize() {
 	if (window.innerWidth < 550) {
-		mobile = true;
 		// Mobile
-		pagename.style.fontSize = '14pt';
+        if (window.innerWidth < 400) {
+		    pagename.style.fontSize = '14pt';
+            content.style.paddingRight = '28px';
+        } else {
+		    pagename.style.fontSize = '14pt';
+            content.style.paddingRight = '18px';
+        }
 	} else {
 		// Not Mobile
-		mobile = false;
 		pagename.style.fontSize = '29pt';
+        content.style.paddingRight = '0px';
 	}
     player.style.top = (window.innerHeight - 45) + 'px';
 }
